@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "⏱️ An anwsome and tiny util package for timestamp without dependencies",
   "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arncet/timestamp-utils.git"
+  },
   "ava": {
     "require": ["babel-register"]
   },
@@ -15,7 +19,8 @@
   },
   "keywords": [
     "timestamp",
-    "utils"
+    "utils",
+    "date"
   ],
   "author": "Arnaud CETOUTE <arnaud.cetoute@hotmail.fr>",
   "license": "MIT",

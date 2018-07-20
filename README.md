@@ -4,6 +4,9 @@
 
 ---------------------------------------
 
+![](https://travis-ci.org/arncet/timestamp-utils.svg?branch=master)
+![](https://img.shields.io/github/license/arncet/timestamp-utils.svg)
+
 ## Navigation 🗺️ :
 
 * 🤔 [Why](#why--)
