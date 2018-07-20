@@ -17,13 +17,13 @@
 	* [getMinutes(timestamp)](#getminutestimestamp-)
 	* [getSeconds(timestamp)](#getsecondstimestamp-)
 	* [getMilliseconds(timestamp)](#getmillisecondstimestamp-)
-	* [addYears(timestamp, years)](#addyears(timestamp-years)-)
-  * [addMonths(timestamp, months)](#addmonths(timestamp-months)-)
-  * [addDays(timestamp, days)](#adddays(timestamp-days)-)
-  * [addHours(timestamp, hours)](#addhours(timestamp-hours)-)
-  * [addMinutes(timestamp, minutes)](#addminutes(timestamp-minutes)-)
-  * [addSeconds(timestamp, seconds)](#addseconds(timestamp-seconds)-)
-  * [addMilliseconds(timestamp, milliseconds)](#addmillisecondstimestamp-milliseconds)
+	* [addYears(timestamp, years)](#addyearstimestamp-years-)
+  * [addMonths(timestamp, months)](#addmonthstimestamp-months-)
+  * [addDays(timestamp, days)](#adddaystimestamp-days-)
+  * [addHours(timestamp, hours)](#addhourstimestamp-hours-)
+  * [addMinutes(timestamp, minutes)](#addminutestimestamp-minutes-)
+  * [addSeconds(timestamp, seconds)](#addsecondstimestamp-seconds-)
+  * [addMilliseconds(timestamp, milliseconds)](#addmillisecondstimestamp-milliseconds-)
   * [add(timestamp, values)](#addtimestamp-values-)
 * 💻 [Development](#development--)
 * 🖋 [License](#license--)
@@ -102,7 +102,7 @@ Return the `timestamp`'s day (ex: "01" for "monday").
 
 ---------------------------------------
 
-### geHours(timestamp) :
+### getHours(timestamp) :
 * Return : String
 * Params :
   * *timestamp* : Int (timestamp)
