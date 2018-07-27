@@ -6,6 +6,8 @@
 
 ![](https://travis-ci.org/arncet/timestamp-utils.svg?branch=master)
 ![](https://img.shields.io/github/license/arncet/timestamp-utils.svg)
+![](http://img.badgesize.io/arncet/timestramp-utils/master/dist/index.js?compression=gzip)
+[![npm version](https://badge.fury.io/js/timestamp-utils.svg)](https://badge.fury.io/js/timestamp-utils)
 
 ## Navigation 🗺️ :
 

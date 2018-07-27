@@ -16,13 +16,17 @@ const ISO_STRING_REGEXP = /(\d{4})-([01]\d)-([0-3]\d)T([0-2]\d):([0-5]\d):([0-5]
 export const initArray = count => Array(count).fill()
 
 export const addOneMonth = (timestamp, negative) => {
-  const timestampDay = getDay(timestamp)
-  // The minimum day count for a month is 28 and maximum is 31
-  const newTimestamp = addDays(timestamp, negative ? -31 : 28)
-  const newTimestampDay = getDay(newTimestamp)
-  return timestampDay === newTimestampDay
-    ? newTimestamp
-    : newTimestamp + (timestampDay - newTimestampDay) * DAY_IN_MILLISECONDS
+  const day = getDay(timestamp)
+  const multiplicator = negative ? -1 : 1
+
+  // Find the closest day
+  // 28, 29, 30 and 31 are all months length possibility
+  const { value } = [28, 29, 30, 31].reduce((prev, value) => {
+    const diff = Math.abs(parseInt(getDay(addDays(timestamp, value * multiplicator)), 10) - day)
+    return (prev.diff === null || diff < prev.diff) ? { value, diff } : prev
+  }, { value: null, diff: null })
+
+  return addDays(timestamp, value * multiplicator)
 }
 
 /***********/
