@@ -38,6 +38,8 @@ export const decompose = timestamp => new Date(timestamp).toISOString().match(IS
 
 export const getYear = timestamp => decompose(timestamp)[0]
 export const getMonth = timestamp => decompose(timestamp)[1]
+// Split timestamp into days. +3 is beacause 01 January 1970 is a Thursday
+export const getWeekDay = timestamp => ((Math.floor(timestamp / DAY_IN_MILLISECONDS) % 7) + 3) % 7
 export const getDay = timestamp => decompose(timestamp)[2]
 export const getHours = timestamp => decompose(timestamp)[3]
 export const getMinutes = timestamp => decompose(timestamp)[4]

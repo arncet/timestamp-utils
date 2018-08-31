@@ -2,7 +2,8 @@ import test from 'ava'
 import { initArray, addOneMonth, decompose, getYear,
   getMonth, getDay, getHours, getMinutes, getSeconds,
   getMilliseconds, addDays, addMonths, addYears, add,
-  addHours, addMinutes, addSeconds, addMilliseconds } from './src'
+  addHours, addMinutes, addSeconds, addMilliseconds,
+  getWeekDay } from './src'
 
 // Init an array with length of 3
 test('initArray', t => {
@@ -33,6 +34,12 @@ test('getYear', t => {
 test('getMonth', t => {
   const month = getMonth(718588800000)
   t.is(month, '10')
+})
+
+// Get week's day of 09 October 1992
+test('getWeekDay', t => {
+  const weekDay = getWeekDay(718588800000)
+  t.is(weekDay, 4)
 })
 
 // Get day of 09 October 1992
