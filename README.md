@@ -17,7 +17,7 @@
 	* [decompose(timestamp)](#decomposetimestamp-)
 	* [getYear(timestamp)](#getyeartimestamp-)
 	* [getMonth(timestamp)](#getmonthtimestamp-)
-  * [getWeekDay(timestamp)](#getweekdaytimestamp-)
+	* [getWeekDay(timestamp)](#getweekdaytimestamp-)
 	* [getDay(timestamp)](#getdaytimestamp-)
 	* [getHours(timestamp)](#gethourstimestamp-)
 	* [getMinutes(timestamp)](#getminutestimestamp-)
