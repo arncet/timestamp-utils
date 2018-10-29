@@ -1,35 +1,57 @@
 {
   "name": "timestamp-utils",
-  "version": "1.0.3",
+  "version": "2.0.0",
   "description": "⏱️ An anwsome and tiny util package for timestamp without dependencies",
   "main": "dist/index.js",
+  "files": [
+    "/dist"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/arncet/timestamp-utils.git"
   },
   "ava": {
-    "require": ["babel-register"]
+    "require": [
+      "@babel/register"
+    ]
   },
+  "xo": {
+		"semicolon": false,
+    "space": true,
+    "rules": {
+      "curly": [
+        2,
+        "multi"
+      ],
+      "object-curly-spacing": [2, "always"]
+    }
+	},
   "scripts": {
-    "build": "$(npm bin)/babel src --out-dir dist",
-    "watch": "$(npm bin)/babel src --watch --out-dir dist",
-    "size": "$(npm bin)/size-limit",
+    "build": "rollup -c",
+    "watch": "rollup -c --watch",
+    "size": "npx size-limit",
     "test": "ava",
-    "prepublishOnly": "npm run test && npm run build && npm run size"
+    "lint": "xo src",
+    "prepublishOnly": "npm run lint && npm run test && npm run build && npm run size"
   },
   "keywords": [
     "timestamp",
     "utils",
-    "date"
+    "date",
+    "timezone"
   ],
   "author": "Arnaud CETOUTE <arnaud.cetoute@hotmail.fr>",
   "license": "MIT",
   "devDependencies": {
+    "@babel/core": "7.1.2",
+    "@babel/plugin-proposal-object-rest-spread": "7.0.0",
+    "@babel/preset-env": "7.1.0",
+    "@babel/register": "7.0.0",
     "ava": "0.25.0",
-    "babel-cli": "6.26.0",
-    "babel-preset-env": "1.7.0",
-    "babel-preset-minify": "0.4.3",
-    "babel-register": "6.26.0",
-    "size-limit": "0.18.5"
+    "rollup": "0.66.6",
+    "rollup-plugin-babel": "4.0.3",
+    "rollup-plugin-uglify": "6.0.0",
+    "size-limit": "0.20.1",
+    "xo": "0.23.0"
   }
 }

@@ -6,24 +6,25 @@
 
 ![](https://travis-ci.org/arncet/timestamp-utils.svg?branch=master)
 ![](https://img.shields.io/github/license/arncet/timestamp-utils.svg)
-![](https://img.shields.io/badge/gzip%20size-697%20B-brightgreen.svg)
+[![Bundlephobia](https://badgen.net/bundlephobia/minzip/timestamp-utils)](https://bundlephobia.com/result?p=timestamp-utils@1.0.3)
+[![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/xojs/xo)
 [![npm version](https://badge.fury.io/js/timestamp-utils.svg)](https://badge.fury.io/js/timestamp-utils)
 
 ## Navigation 🗺️ :
 
-* 🤔 [Why](#why--)
-* ✍️ [How to use](#how-to-use--)
-* 📖 [API](#api--)
-	* [decompose(timestamp)](#decomposetimestamp-)
-	* [getYear(timestamp)](#getyeartimestamp-)
-	* [getMonth(timestamp)](#getmonthtimestamp-)
-	* [getWeekDay(timestamp)](#getweekdaytimestamp-)
-	* [getDay(timestamp)](#getdaytimestamp-)
-	* [getHours(timestamp)](#gethourstimestamp-)
-	* [getMinutes(timestamp)](#getminutestimestamp-)
-	* [getSeconds(timestamp)](#getsecondstimestamp-)
-	* [getMilliseconds(timestamp)](#getmillisecondstimestamp-)
-	* [addYears(timestamp, years)](#addyearstimestamp-years-)
+* [Why 🤔](#why-🤔-)
+* [How to use ✍️](#how-to-use-✍️-)
+* [API 📖](#api-📖-)
+  * [decompose(timestamp, timezone)](#decomposetimestamp-timezoneutc-)
+  * [getYear(timestamp, timezone)](#getyeartimestamp-timezoneutc-)
+  * [getMonth(timestamp, timezone)](#getmonthtimestamp-timezoneutc-)
+  * [getWeekDay(timestamp, timezone)](#getweekdaytimestamp-timezoneutc-)
+  * [getDay(timestamp, timezone)](#getdaytimestamp-timezoneutc-)
+  * [getHours(timestamp, timezone)](#gethourstimestamp-timezoneutc-)
+  * [getMinutes(timestamp, timezone)](#getminutestimestamp-timezoneutc-)
+  * [getSeconds(timestamp, timezone)](#getsecondstimestamp-timezoneutc-)
+  * [getMilliseconds(timestamp, timezone)](#getmillisecondstimestamp-timezoneutc-)
+  * [addYears(timestamp, years)](#addyearstimestamp-years-)
   * [addMonths(timestamp, months)](#addmonthstimestamp-months-)
   * [addDays(timestamp, days)](#adddaystimestamp-days-)
   * [addHours(timestamp, hours)](#addhourstimestamp-hours-)
@@ -31,8 +32,9 @@
   * [addSeconds(timestamp, seconds)](#addsecondstimestamp-seconds-)
   * [addMilliseconds(timestamp, milliseconds)](#addmillisecondstimestamp-milliseconds-)
   * [add(timestamp, values)](#addtimestamp-values-)
-* 💻 [Development](#development--)
-* 🖋 [License](#license--)
+* [Changelog 📋](#changelog-📋-)
+* [Development 💻](#development-💻-)
+* [License 🖋](#license-🖋-)
 
 ## Why 🤔 :
 
@@ -59,18 +61,19 @@ yarn add timestamp-utils
 Use it :
 
 ```javascript
-import { addDays } from 'timestamp-utils'
+import t from 'timestamp-utils'
 
 const now = new Date().getTime()
-const timestamp = addDays(now, 3)
+const timestamp = t.addDays(now, 3)
 ```
 
 ## API 📖 :
 
-### decompose(timestamp) :
-* Return : Array
+### decompose(timestamp, [timezone='UTC']) :
+* Return : Array of String
 * Params :
   * *timestamp* : Int (timestamp)
+  * *timezone* : String *(since v2.0.0)*
 * Available since : *v1.0.0*
 
 Decompose `timestamp` to the following array pattern :
@@ -82,6 +85,7 @@ Decompose `timestamp` to the following array pattern :
 * Return : String
 * Params :
   * *timestamp* : Int (timestamp)
+  * *timezone* : String *(since v1.0.3)*
 * Available since : *v1.0.0*
 
 Return the `timestamp`'s year.
@@ -92,6 +96,7 @@ Return the `timestamp`'s year.
 * Return : String
 * Params :
   * *timestamp* : Int (timestamp)
+  * *timezone* : String *(since v1.0.3)*
 * Available since : *v1.0.0*
 
 Return the `timestamp`'s month (eg: "01" for "january").
@@ -102,6 +107,7 @@ Return the `timestamp`'s month (eg: "01" for "january").
 * Return : Integer
 * Params :
   * *timestamp* : Int (timestamp)
+  * *timezone* : String *(since v1.0.3)*
 * Available since : *v1.0.3*
 
 Return the `timestamp`'s week day (eg: 0 for "monday").
@@ -112,6 +118,7 @@ Return the `timestamp`'s week day (eg: 0 for "monday").
 * Return : String
 * Params :
   * *timestamp* : Int (timestamp)
+  * *timezone* : String *(since v1.0.3)*
 * Available since : *v1.0.0*
 
 Return the `timestamp`'s day (eg: "01" for "monday").
@@ -122,6 +129,7 @@ Return the `timestamp`'s day (eg: "01" for "monday").
 * Return : String
 * Params :
   * *timestamp* : Int (timestamp)
+  * *timezone* : String *(since v1.0.3)*
 * Available since : *v1.0.0*
 
 Return the `timestamp`'s hours.
@@ -132,6 +140,7 @@ Return the `timestamp`'s hours.
 * Return : String
 * Params :
   * *timestamp* : Int (timestamp)
+  * *timezone* : String *(since v1.0.3)*
 * Available since : *v1.0.0*
 
 Return the `timestamp`'s minutes.
@@ -142,6 +151,7 @@ Return the `timestamp`'s minutes.
 * Return : String
 * Params :
   * *timestamp* : Int (timestamp)
+  * *timezone* : String *(since v1.0.3)*
 * Available since : *v1.0.0*
 
 Return the `timestamp`'s seconds.
@@ -152,6 +162,7 @@ Return the `timestamp`'s seconds.
 * Return : String
 * Params :
   * *timestamp* : Int (timestamp)
+  * *timezone* : String *(since v1.0.3)*
 * Available since : *v1.0.0*
 
 Return the `timestamp`'s milliseconds.
@@ -182,7 +193,7 @@ Add the given `months` to the given `timestamp`.
 
 > ⚠️ Note : `addMonths` doesn't add same amont of day.<br />
 > `addMonths` add days depends on the given day, the result is always the nearest month's day that the given month's day :
-> 
+>
 >  * 09 October + 1 month => 09 November (+31 days)
 >  * 31 August + 1 month => 30 September (+30 days)
 >  * 31 January 2018 + 1 month => 28 February (+28 days)
@@ -266,6 +277,25 @@ Example : `{ years: 3, days: -1, seconds: 20 }` will add 3 years, subtract 1 day
 > ⚠️ Note : `add` calls `addMilliseconds`, `addSeconds`, `addMinutes`, `addHours`,  `addDays`, `addMonths` and `addYears` in this order.<br />
 > That mean, according to [addMonths](#addmonthstimestamp-months-)'s note, `add(t, { days: -1, months: -1 })` and `addDays(addMonths(t, -1), -1)`  are not always equals.<br />
 > Example : `add(30 March 2018, { days: -1, months: -1 })` => `28 February 2018`, `addDays(addMonths(30 March 2018, -1), -1)` => `27 February 2018`
+
+---------------------------------------
+
+## Changelog 📋 :
+
+### v2.0.0 :
+
+* [decompose](#decomposetimestamp-timezoneutc-) is no longer accessible by using deconstructing import. Now [decompose](#decomposetimestamp-timezoneutc-) is accessible by doing :
+
+```javascript
+import t from 'timestamp-utils'
+const results = t.decompose(now)
+```
+* [decompose](#decomposetimestamp-timezoneutc-) now support timezone :
+
+```javascript
+import t from 'timestamp-utils'
+const results = t.decompose(now, 'Europe/Paris')
+```
 
 ---------------------------------------
 

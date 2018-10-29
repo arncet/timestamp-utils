@@ -1,58 +1,101 @@
-/*************/
-/* Constants */
-/*************/
+import { initArray, timezoneOffset } from './utils'
 
 const SECOND_IN_MILLISECONDS = 1000
 const MINUTE_IN_MILLISECONDS = SECOND_IN_MILLISECONDS * 60
 const HOUR_IN_MILLISECONDS = MINUTE_IN_MILLISECONDS * 60
 const DAY_IN_MILLISECONDS = HOUR_IN_MILLISECONDS * 24
-const ISO_STRING_REGEXP = /(\d{4})-([01]\d)-([0-3]\d)T([0-2]\d):([0-5]\d):([0-5]\d)\.(\d{3})+/
+const ISO_STRING_REGEXP = /(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})\.(\d{3})+/
 
-/**********/
-/* Uitls */
-/*********/
+const t = () => ({
+  timezone: 'UTC',
 
-// Create an array of undefined with `count` lenght
-export const initArray = count => Array(count).fill()
+  setTimezone(timezone) {
+    this.timezone = timezone
+  },
 
-export const addOneMonth = (timestamp, negative) => {
-  const day = getDay(timestamp)
-  const multiplicator = negative ? -1 : 1
+  // 0: Year, 1: Month, 2: Day, 3: Hours, 4: Minutes, 5: Seconds, 6: Milliseconds
+  decompose(timestamp, timezone = this.timezone) {
+    return new Date(timestamp + timezoneOffset(timezone)).toISOString().match(ISO_STRING_REGEXP).slice(1)
+  },
 
-  // Find the closest day
-  // 28, 29, 30 and 31 are all months length possibility
-  const { value } = [28, 29, 30, 31].reduce((prev, value) => {
-    const diff = Math.abs(parseInt(getDay(addDays(timestamp, value * multiplicator)), 10) - day)
-    return (prev.diff === null || diff < prev.diff) ? { value, diff } : prev
-  }, { value: null, diff: null })
+  addOneMonth(timestamp, negative) {
+    const day = this.getDay(timestamp)
+    const multiplicator = negative ? -1 : 1
 
-  return addDays(timestamp, value * multiplicator)
-}
+    // Find the closest day
+    // 28, 29, 30 and 31 are all months length possibility
+    const { value } = [28, 29, 30, 31].reduce((prev, value) => {
+      const diff = Math.abs(parseInt(this.getDay(this.addDays(timestamp, value * multiplicator)), 10) - day)
+      return (prev.diff === null || diff < prev.diff) ? { value, diff } : prev
+    }, { value: null, diff: null })
 
-/***********/
-/* Methods */
-/***********/
+    return this.addDays(timestamp, value * multiplicator)
+  },
 
-// 0: Year, 1: Month, 2: Day, 3: Hours, 4: Minutes, 5: Seconds, 6: Milliseconds
-export const decompose = timestamp => new Date(timestamp).toISOString().match(ISO_STRING_REGEXP).slice(1)
+  getYear(timestamp, timezone) {
+    return this.decompose(timestamp, timezone)[0]
+  },
 
-export const getYear = timestamp => decompose(timestamp)[0]
-export const getMonth = timestamp => decompose(timestamp)[1]
-// Split timestamp into days. +3 is beacause 01 January 1970 is a Thursday
-export const getWeekDay = timestamp => ((Math.floor(timestamp / DAY_IN_MILLISECONDS) % 7) + 3) % 7
-export const getDay = timestamp => decompose(timestamp)[2]
-export const getHours = timestamp => decompose(timestamp)[3]
-export const getMinutes = timestamp => decompose(timestamp)[4]
-export const getSeconds = timestamp => decompose(timestamp)[5]
-export const getMilliseconds = timestamp => decompose(timestamp)[6]
+  getMonth(timestamp, timezone) {
+    return this.decompose(timestamp, timezone)[1]
+  },
 
-export const addMonths = (timestamp, months) => initArray(Math.abs(months)).reduce(prev =>  addOneMonth(prev, months < 0), timestamp)
-export const addYears = (timestamp, years) => initArray(Math.abs(years)).reduce(prev =>  addMonths(prev, years > 0 ? 12 : -12), timestamp)
-export const addDays = (timestamp, days) => timestamp + (DAY_IN_MILLISECONDS * days)
-export const addHours = (timestamp, hours) => timestamp + (HOUR_IN_MILLISECONDS * hours)
-export const addMinutes = (timestamp, minutes) => timestamp + (MINUTE_IN_MILLISECONDS * minutes)
-export const addSeconds = (timestamp, seconds) => timestamp + (SECOND_IN_MILLISECONDS * seconds)
-export const addMilliseconds = (timestamp, milliseconds) => timestamp + milliseconds
+  // Split timestamp into days. +3 is beacause 01 January 1970 is a Thursday
+  getWeekDay(timestamp) {
+    return ((Math.floor(timestamp / DAY_IN_MILLISECONDS) % 7) + 3) % 7
+  },
 
-export const add = (timestamp, { years = 0, months = 0, days = 0, hours = 0, minutes = 0, seconds = 0, milliseconds = 0 }) =>
-  addYears(addMonths(addDays(addHours(addMinutes(addSeconds(addMilliseconds(timestamp, milliseconds), seconds), minutes), hours), days), months), years)
+  getDay(timestamp, timezone) {
+    return this.decompose(timestamp, timezone)[2]
+  },
+
+  getHours(timestamp, timezone) {
+    return this.decompose(timestamp, timezone)[3]
+  },
+
+  getMinutes(timestamp, timezone) {
+    return this.decompose(timestamp, timezone)[4]
+  },
+
+  getSeconds(timestamp, timezone) {
+    return this.decompose(timestamp, timezone)[5]
+  },
+
+  getMilliseconds(timestamp, timezone) {
+    return this.decompose(timestamp, timezone)[6]
+  },
+
+  addMonths(timestamp, months) {
+    return initArray(Math.abs(months)).reduce(prev => this.addOneMonth(prev, months < 0), timestamp)
+  },
+
+  addYears(timestamp, years) {
+    return initArray(Math.abs(years)).reduce(prev => this.addMonths(prev, years > 0 ? 12 : -12), timestamp)
+  },
+
+  addDays(timestamp, days) {
+    return timestamp + (DAY_IN_MILLISECONDS * days)
+  },
+
+  addHours(timestamp, hours) {
+    return timestamp + (HOUR_IN_MILLISECONDS * hours)
+  },
+
+  addMinutes(timestamp, minutes) {
+    return timestamp + (MINUTE_IN_MILLISECONDS * minutes)
+  },
+
+  addSeconds(timestamp, seconds) {
+    return timestamp + (SECOND_IN_MILLISECONDS * seconds)
+  },
+
+  addMilliseconds(timestamp, milliseconds) {
+    return timestamp + milliseconds
+  },
+
+  add(timestamp, { years = 0, months = 0, days = 0, hours = 0, minutes = 0, seconds = 0, milliseconds = 0 }) {
+    return this.addYears(this.addMonths(this.addDays(this.addHours(this.addMinutes(this.addSeconds(this.addMilliseconds(timestamp, milliseconds), seconds), minutes), hours), days), months), years)
+  }
+})
+
+export default t()
