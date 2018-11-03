@@ -9,13 +9,16 @@ const ISO_STRING_REGEXP = /(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})\.(\d{
 const t = () => ({
   timezone: 'UTC',
 
+  timezoneDiff: 0,
+
   setTimezone(timezone) {
+    this.timezoneDiff = timezoneOffset(timezone)
     this.timezone = timezone
   },
 
   // 0: Year, 1: Month, 2: Day, 3: Hours, 4: Minutes, 5: Seconds, 6: Milliseconds
   decompose(timestamp, timezone = this.timezone) {
-    return new Date(timestamp + timezoneOffset(timezone)).toISOString().match(ISO_STRING_REGEXP).slice(1)
+    return new Date(timestamp + this.timezoneDiff).toISOString().match(ISO_STRING_REGEXP).slice(1)
   },
 
   addOneMonth(timestamp, negative) {

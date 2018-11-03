@@ -12,31 +12,39 @@
 
 ## Navigation 🗺️ :
 
-* [Why 🤔](#why-🤔-)
-* [How to use ✍️](#how-to-use-✍️-)
-* [API 📖](#api-📖-)
-  * [decompose(timestamp, timezone)](#decomposetimestamp-timezoneutc-)
-  * [getYear(timestamp)](#getyeartimestamp-)
-  * [getMonth(timestamp)](#getmonthtimestamp-)
-  * [getWeekDay(timestamp)](#getweekdaytimestamp-)
-  * [getDay(timestamp)](#getdaytimestamp-)
-  * [getHours(timestamp)](#gethourstimestamp-)
-  * [getMinutes(timestamp)](#getminutestimestamp-)
-  * [getSeconds(timestamp)](#getsecondstimestamp-)
-  * [getMilliseconds(timestamp)](#getmillisecondstimestamp-)
-  * [addYears(timestamp, years)](#addyearstimestamp-years-)
-  * [addMonths(timestamp, months)](#addmonthstimestamp-months-)
-  * [addDays(timestamp, days)](#adddaystimestamp-days-)
-  * [addHours(timestamp, hours)](#addhourstimestamp-hours-)
-  * [addMinutes(timestamp, minutes)](#addminutestimestamp-minutes-)
-  * [addSeconds(timestamp, seconds)](#addsecondstimestamp-seconds-)
-  * [addMilliseconds(timestamp, milliseconds)](#addmillisecondstimestamp-milliseconds-)
-  * [add(timestamp, values)](#addtimestamp-values-)
-* [Changelog 📋](#changelog-📋-)
-* [Development 💻](#development-💻-)
-* [License 🖋](#license-🖋-)
+<!-- TOC -->
 
-## Why 🤔 :
+- [timestamp-utils](#timestamp-utils)
+  - [Navigation 🗺️ :](#navigation-🗺️-)
+  - [Why 🤔](#why-🤔)
+  - [How to use ✍️](#how-to-use-✍️)
+  - [API 📖](#api-📖)
+    - [decompose(timestamp, [timezone='UTC'])](#decomposetimestamp-timezoneutc)
+    - [getYear(timestamp)](#getyeartimestamp)
+    - [getMonth(timestamp)](#getmonthtimestamp)
+    - [getWeekDay(timestamp)](#getweekdaytimestamp)
+    - [getDay(timestamp)](#getdaytimestamp)
+    - [getHours(timestamp)](#gethourstimestamp)
+    - [getMinutes(timestamp)](#getminutestimestamp)
+    - [getSeconds(timestamp)](#getsecondstimestamp)
+    - [getMilliseconds(timestamp)](#getmillisecondstimestamp)
+    - [addYears(timestamp, years)](#addyearstimestamp-years)
+    - [addMonths(timestamp, months)](#addmonthstimestamp-months)
+    - [addDays(timestamp, days)](#adddaystimestamp-days)
+    - [addHours(timestamp, hours)](#addhourstimestamp-hours)
+    - [addMinutes(timestamp, minutes)](#addminutestimestamp-minutes)
+    - [addSeconds(timestamp, seconds)](#addsecondstimestamp-seconds)
+    - [addMilliseconds(timestamp, milliseconds)](#addmillisecondstimestamp-milliseconds)
+    - [add(timestamp, values)](#addtimestamp-values)
+  - [Changelog 📋](#changelog-📋)
+    - [v2.0.1](#v201)
+    - [v2.0.0](#v200)
+  - [Development 💻](#development-💻)
+  - [License 🖋](#license-🖋)
+
+<!-- /TOC -->
+
+## Why 🤔
 
 Because when you manipulate date with javascript `Date` class it automatically apply the current timezone.
 Using timestamp is a good way to avoid timezones's influences.
@@ -44,7 +52,7 @@ But using timestamp for huge maninupulations can be very hard (ex: go to next mo
 
 That why i created `timestamp-utils`, it's a powerful util package to easly manipulate timestamp.
 
-## How to use ✍️ :
+## How to use ✍️
 
 Install `timestamp-utils` via npm :
 
@@ -67,9 +75,9 @@ const now = new Date().getTime()
 const timestamp = t.addDays(now, 3)
 ```
 
-## API 📖 :
+## API 📖
 
-### decompose(timestamp, [timezone='UTC']) :
+### decompose(timestamp, [timezone='UTC'])
 * Return : Array of String
 * Params :
   * *timestamp* : Int (timestamp)
@@ -81,7 +89,7 @@ Decompose `timestamp` to the following array pattern :
 
 ---------------------------------------
 
-### getYear(timestamp) :
+### getYear(timestamp)
 * Return : String
 * Params :
   * *timestamp* : Int (timestamp)
@@ -92,7 +100,7 @@ Return the `timestamp`'s year.
 
 ---------------------------------------
 
-### getMonth(timestamp) :
+### getMonth(timestamp)
 * Return : String
 * Params :
   * *timestamp* : Int (timestamp)
@@ -103,7 +111,7 @@ Return the `timestamp`'s month (eg: "01" for "january").
 
 ---------------------------------------
 
-### getWeekDay(timestamp) :
+### getWeekDay(timestamp)
 * Return : Integer
 * Params :
   * *timestamp* : Int (timestamp)
@@ -114,7 +122,7 @@ Return the `timestamp`'s week day (eg: 0 for "monday").
 
 ---------------------------------------
 
-### getDay(timestamp) :
+### getDay(timestamp)
 * Return : String
 * Params :
   * *timestamp* : Int (timestamp)
@@ -125,7 +133,7 @@ Return the `timestamp`'s day (eg: "01" for "monday").
 
 ---------------------------------------
 
-### getHours(timestamp) :
+### getHours(timestamp)
 * Return : String
 * Params :
   * *timestamp* : Int (timestamp)
@@ -136,7 +144,7 @@ Return the `timestamp`'s hours.
 
 ---------------------------------------
 
-### getMinutes(timestamp) :
+### getMinutes(timestamp)
 * Return : String
 * Params :
   * *timestamp* : Int (timestamp)
@@ -147,7 +155,7 @@ Return the `timestamp`'s minutes.
 
 ---------------------------------------
 
-### getSeconds(timestamp) :
+### getSeconds(timestamp)
 * Return : String
 * Params :
   * *timestamp* : Int (timestamp)
@@ -158,7 +166,7 @@ Return the `timestamp`'s seconds.
 
 ---------------------------------------
 
-### getMilliseconds(timestamp) :
+### getMilliseconds(timestamp)
 * Return : String
 * Params :
   * *timestamp* : Int (timestamp)
@@ -169,7 +177,7 @@ Return the `timestamp`'s milliseconds.
 
 ---------------------------------------
 
-### addYears(timestamp, years) :
+### addYears(timestamp, years)
 * Return : Int (timestamp)
 * Params :
   * *timestamp* : Int (timestamp)
@@ -181,7 +189,7 @@ Add the given `years` to the given `timestamp`.
 
 ---------------------------------------
 
-### addMonths(timestamp, months) :
+### addMonths(timestamp, months)
 * Return : Int (timestamp)
 * Params :
   * *timestamp* : Int (timestamp)
@@ -200,7 +208,7 @@ Add the given `months` to the given `timestamp`.
 
 ---------------------------------------
 
-### addDays(timestamp, days) :
+### addDays(timestamp, days)
 * Return : Int (timestamp)
 * Params :
   * *timestamp* : Int (timestamp)
@@ -212,7 +220,7 @@ Add the given `days` to the given `timestamp`.
 
 ---------------------------------------
 
-### addHours(timestamp, hours) :
+### addHours(timestamp, hours)
 * Return : Int (timestamp)
 * Params :
   * *timestamp* : Int (timestamp)
@@ -224,7 +232,7 @@ Add the given `hours` to the given `timestamp`.
 
 ---------------------------------------
 
-### addMinutes(timestamp, minutes) :
+### addMinutes(timestamp, minutes)
 * Return : Int (timestamp)
 * Params :
   * *timestamp* : Int (timestamp)
@@ -236,7 +244,7 @@ Add the given `minutes` to the given `timestamp`.
 
 ---------------------------------------
 
-### addSeconds(timestamp, seconds) :
+### addSeconds(timestamp, seconds)
 * Return : Int (timestamp)
 * Params :
   * *timestamp* : Int (timestamp)
@@ -248,7 +256,7 @@ Add the given `seconds` to the given `timestamp`.
 
 ---------------------------------------
 
-### addMilliseconds(timestamp, milliseconds) :
+### addMilliseconds(timestamp, milliseconds)
 * Return : Int (timestamp)
 * Params :
   * *timestamp* : Int (timestamp)
@@ -260,7 +268,7 @@ Add the given `milliseconds` to the given `timestamp`.
 
 ---------------------------------------
 
-### add(timestamp, values) :
+### add(timestamp, values)
 * Return : Int (timestamp)
 * Params :
   * *timestamp* : Int (timestamp)
@@ -280,9 +288,13 @@ Example : `{ years: 3, days: -1, seconds: 20 }` will add 3 years, subtract 1 day
 
 ---------------------------------------
 
-## Changelog 📋 :
+## Changelog 📋
 
-### v2.0.0 :
+### v2.0.1
+
+* Fix [decompose](#decomposetimestamp-timezoneutc-) slow execution speed.
+
+### v2.0.0
 
 * [decompose](#decomposetimestamp-timezoneutc-) is no longer accessible by using deconstructing import. Now [decompose](#decomposetimestamp-timezoneutc-) is accessible by doing :
 
@@ -299,7 +311,7 @@ const results = t.decompose(now, 'Europe/Paris')
 
 ---------------------------------------
 
-## Development 💻 :
+## Development 💻
 
 ```
 // Clone the project
@@ -321,6 +333,6 @@ npm run build
 npm run size
 ```
 
-## License 🖋 :
+## License 🖋
 
 [MIT](https://en.wikipedia.org/wiki/MIT_License)
