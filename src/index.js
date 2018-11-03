@@ -18,7 +18,8 @@ const t = () => ({
 
   // 0: Year, 1: Month, 2: Day, 3: Hours, 4: Minutes, 5: Seconds, 6: Milliseconds
   decompose(timestamp, timezone = this.timezone) {
-    return new Date(timestamp + this.timezoneDiff).toISOString().match(ISO_STRING_REGEXP).slice(1)
+    const timestampDiff = timezone !== this.timezone ? timezoneOffset(timezone) : this.timezoneDiff
+    return new Date(timestamp + timestampDiff).toISOString().match(ISO_STRING_REGEXP).slice(1)
   },
 
   addOneMonth(timestamp, negative) {
