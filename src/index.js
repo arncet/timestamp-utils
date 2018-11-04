@@ -46,7 +46,7 @@ const t = () => ({
 
   // Split timestamp into days. +3 is beacause 01 January 1970 is a Thursday
   getWeekDay(timestamp) {
-    return ((Math.floor(timestamp / DAY_IN_MILLISECONDS) % 7) + 3) % 7
+    return ((Math.floor((timestamp + this.timezoneDiff) / DAY_IN_MILLISECONDS) % 7) + 3) % 7
   },
 
   getDay(timestamp, timezone) {

@@ -37,6 +37,7 @@
     - [addMilliseconds(timestamp, milliseconds)](#addmillisecondstimestamp-milliseconds)
     - [add(timestamp, values)](#addtimestamp-values)
   - [Changelog 📋](#changelog-📋)
+    - [v2.0.2](#v202)
     - [v2.0.1](#v201)
     - [v2.0.0](#v200)
   - [Development 💻](#development-💻)
@@ -289,6 +290,10 @@ Example : `{ years: 3, days: -1, seconds: 20 }` will add 3 years, subtract 1 day
 ---------------------------------------
 
 ## Changelog 📋
+
+### v2.0.2
+
+* Fix [getWeekday](#getweekdaytimestamp) usage of timezone.
 
 ### v2.0.1
 
