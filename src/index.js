@@ -99,7 +99,53 @@ const t = () => ({
 
   add(timestamp, { years = 0, months = 0, days = 0, hours = 0, minutes = 0, seconds = 0, milliseconds = 0 }) {
     return this.addYears(this.addMonths(this.addDays(this.addHours(this.addMinutes(this.addSeconds(this.addMilliseconds(timestamp, milliseconds), seconds), minutes), hours), days), months), years)
+  },
+
+  setYear(timestamp, year) {
+    return this.addYears(timestamp, year - this.getYear(timestamp))
+  },
+
+  setMonth(timestamp, month) {
+    return this.addMonths(timestamp, month - this.getMonth(timestamp))
+  },
+
+  setWeekDay(timestamp, weekDay) {
+    return this.addDays(timestamp, weekDay - this.getWeekDay(timestamp))
+  },
+
+  setDay(timestamp, day) {
+    return this.addDays(timestamp, day - this.getDay(timestamp))
+  },
+
+  setHours(timestamp, hours) {
+    return this.addHours(timestamp, hours - this.getHours(timestamp))
+  },
+
+  setMinutes(timestamp, minutes) {
+    return this.addMinutes(timestamp, minutes - this.getMinutes(timestamp))
+  },
+
+  setSeconds(timestamp, seconds) {
+    return this.addSeconds(timestamp, seconds - this.getSeconds(timestamp))
+  },
+
+  setMilliseconds(timestamp, milliseconds) {
+    return this.addMilliseconds(timestamp, milliseconds - this.getMilliseconds(timestamp))
+  },
+
+  set(timestamp, { year, month, day, hours, minutes, seconds, milliseconds }) {
+    const y = year || this.getYear(timestamp)
+    const m = month || this.getMonth(timestamp)
+    const d = day || this.getDay(timestamp)
+    const h = hours || this.getHours(timestamp)
+    const mn = minutes || this.getMinutes(timestamp)
+    const s = seconds || this.getSeconds(timestamp)
+    const ms = milliseconds || this.getMilliseconds(timestamp)
+    return this.setYear(this.setMonth(this.setDay(this.setHours(this.setMinutes(this.setSeconds(this.setMilliseconds(timestamp, ms), s), mn), h), d), m), y)
   }
 })
 
 export default t()
+const a = t().setMonth(718588800000, 1)
+const b = new Date(a).toString()
+console.log({ a, b })

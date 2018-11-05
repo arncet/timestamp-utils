@@ -176,3 +176,79 @@ test('addMilliseconds (negative)', t => {
   const timestamp = timestampUtils.addMilliseconds(718597814300, -3)
   t.is(timestamp, 718597814297)
 })
+
+// 09 October 1992 at 00:00:00:000 -> 27 January 1994 at 02:30:14:300
+test('add', t => {
+  const timestamp = timestampUtils.add(718588800000, {
+    years: 2,
+    months: -9,
+    days: 18,
+    hours: 2,
+    minutes: 30,
+    seconds: 14,
+    milliseconds: 300
+  })
+  t.is(timestamp, 759637814300)
+})
+
+// 09 October 1992 -> 09 November 1994
+test('setYear', t => {
+  const timestamp = timestampUtils.setYear(718588800000, 1994)
+  t.is(timestamp, 781660800000)
+})
+
+// 09 October 1992 -> 09 January 1992
+test('setMonth', t => {
+  const timestamp = timestampUtils.setMonth(718588800000, 1)
+  t.is(timestamp, 694915200000)
+})
+
+// Fri 09 October 1992 -> Sun 11 January 1992
+test('setWeekDay', t => {
+  const timestamp = timestampUtils.setWeekDay(718588800000, 6)
+  t.is(timestamp, 718761600000)
+})
+
+// 09 October 1992 -> 27 October 1992
+test('setDay', t => {
+  const timestamp = timestampUtils.setDay(718588800000, 27)
+  t.is(timestamp, 720144000000)
+})
+
+// 09 October 1992 at 00:00:00 -> 09 October 1992 at 02:00:00
+test('setHours', t => {
+  const timestamp = timestampUtils.setHours(718588800000, 2)
+  t.is(timestamp, 718596000000)
+})
+
+// 09 October 1992 at 00:00:00 -> 09 October 1992 at 00:30:00
+test('setMinutes', t => {
+  const timestamp = timestampUtils.setMinutes(718588800000, 30)
+  t.is(timestamp, 718590600000)
+})
+
+// 09 October 1992 at 00:00:00 -> 09 October 1992 at 00:00:14
+test('setSeconds', t => {
+  const timestamp = timestampUtils.setSeconds(718588800000, 14)
+  t.is(timestamp, 718588814000)
+})
+
+// 09 October 1992 at 00:00:00:000 -> 09 October 1992 at 00:00:00:300
+test('setMilliseconds', t => {
+  const timestamp = timestampUtils.setMilliseconds(718588800000, 300)
+  t.is(timestamp, 718588800300)
+})
+
+// 09 October 1992 at 00:00:00:000 -> 27 January 1994 at 02:30:14:300
+test('set', t => {
+  const timestamp = timestampUtils.set(718588800000, {
+    year: 1994,
+    month: 1,
+    day: 27,
+    hours: 2,
+    minutes: 30,
+    seconds: 14,
+    milliseconds: 300
+  })
+  t.is(timestamp, 759637814300)
+})

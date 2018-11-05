@@ -1,6 +1,6 @@
 {
   "name": "timestamp-utils",
-  "version": "2.0.2",
+  "version": "2.1.0",
   "description": "⏱️ An anwsome and tiny util package for timestamp without dependencies",
   "main": "dist/index.js",
   "files": [

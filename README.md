@@ -36,7 +36,17 @@
     - [addSeconds(timestamp, seconds)](#addsecondstimestamp-seconds)
     - [addMilliseconds(timestamp, milliseconds)](#addmillisecondstimestamp-milliseconds)
     - [add(timestamp, values)](#addtimestamp-values)
+    - [setYear(timestamp, year)](#setyeartimestamp-year)
+    - [setMonth(timestamp, month)](#setmonthtimestamp-month)
+    - [setWeekDay(timestamp, weekDay)](#setweekdaytimestamp-weekday)
+    - [setDay(timestamp, day)](#setdaytimestamp-day)
+    - [setHours(timestamp, hours)](#sethourstimestamp-hours)
+    - [setMinutes(timestamp, minutes)](#setminutestimestamp-minutes)
+    - [setSeconds(timestamp, seconds)](#setsecondstimestamp-seconds)
+    - [setMilliseconds(timestamp, millisecondes)](#setmillisecondstimestamp-millisecondes)
+    - [set(timestamp, values)](#settimestamp-values)
   - [Changelog 📋](#changelog-📋)
+    - [v2.0.3](#v203)
     - [v2.0.2](#v202)
     - [v2.0.1](#v201)
     - [v2.0.0](#v200)
@@ -289,11 +299,130 @@ Example : `{ years: 3, days: -1, seconds: 20 }` will add 3 years, subtract 1 day
 
 ---------------------------------------
 
+### setYear(timestamp, year)
+* Return : Int (timestamp)
+* Params :
+  * *timestamp* : Int (timestamp)
+  * *year*: Int (year to set)
+* Available since : *v2.1.0*
+
+Set the given `year` to the given `timestamp`.
+
+---------------------------------------
+
+### setMonth(timestamp, month)
+* Return : Int (timestamp)
+* Params :
+  * *timestamp* : Int (timestamp)
+  * *month*: Int (month to set)
+* Available since : *v2.1.0*
+
+Set the given `month` to the given `timestamp`.
+
+---------------------------------------
+
+### setWeekDay(timestamp, weekDay)
+* Return : Int (timestamp)
+* Params :
+  * *timestamp* : Int (timestamp)
+  * *weekDay*: Int (weekDay to set)
+* Available since : *v2.1.0*
+
+Set the given `weekDay` to the given `timestamp`.
+
+> ⚠️ Note : `weekDay` must be an integer between 0 and 6 (0 for Monday, 6 for Sunday)
+
+---------------------------------------
+
+### setDay(timestamp, day)
+* Return : Int (timestamp)
+* Params :
+  * *timestamp* : Int (timestamp)
+  * *day*: Int (day to set)
+* Available since : *v2.1.0*
+
+Set the given `day` to the given `timestamp`.
+
+---------------------------------------
+
+### setHours(timestamp, hours)
+* Return : Int (timestamp)
+* Params :
+  * *timestamp* : Int (timestamp)
+  * *hours*: Int (hours to set)
+* Available since : *v2.1.0*
+
+Set the given `hours` to the given `timestamp`.
+
+---------------------------------------
+
+### setMinutes(timestamp, minutes)
+* Return : Int (timestamp)
+* Params :
+  * *timestamp* : Int (timestamp)
+  * *minutes*: Int (minutes to set)
+* Available since : *v2.1.0*
+
+Set the given `minutes` to the given `timestamp`.
+
+---------------------------------------
+
+### setSeconds(timestamp, seconds)
+* Return : Int (timestamp)
+* Params :
+  * *timestamp* : Int (timestamp)
+  * *seconds*: Int (seconds to set)
+* Available since : *v2.1.0*
+
+Set the given `seconds` to the given `timestamp`.
+
+---------------------------------------
+
+### setMilliseconds(timestamp, millisecondes)
+* Return : Int (timestamp)
+* Params :
+  * *timestamp* : Int (timestamp)
+  * *millisecondes*: Int (millisecondes to set)
+* Available since : *v2.1.0*
+
+Set the given `millisecondes` to the given `timestamp`.
+
+---------------------------------------
+
+### set(timestamp, values)
+* Return : Int (timestamp)
+* Params :
+  * *timestamp* : Int (timestamp)
+  * *values*: Object
+* Available since : *v1.0.0*
+
+`set` is a combo of all previous "set" methods.
+`values` is an object that follow this pattern :
+`{ year, month, day, hours, minutes, seconds, milliseconds }`
+All `values` values are `int` and represent the `key` value to add.
+
+Example : `{ year: 1992, days: 9, seconds: 14 }` will set year to 1992, day to 9 and seconds to 14 to the given `timestamp`.
+
+---------------------------------------
+
 ## Changelog 📋
+
+### v2.0.3
+
+* Adding `set` methods :
+  - [setYear(timestamp, year)](#setyeartimestamp-year)
+  - [setMonth(timestamp, month)](#setmonthtimestamp-month)
+  - [setWeekDay(timestamp, weekDay)](#setweekdaytimestamp-weekday)
+  - [setDay(timestamp, day)](#setdaytimestamp-day)
+  - [setHours(timestamp, hours)](#sethourstimestamp-hours)
+  - [setMinutes(timestamp, minutes)](#setminutestimestamp-minutes)
+  - [setSeconds(timestamp, seconds)](#setsecondstimestamp-seconds)
+  - [setMilliseconds(timestamp, millisecondes)](#setmillisecondstimestamp-millisecondes)
+  - [set(timestamp, values)](#settimestamp-values)
 
 ### v2.0.2
 
-* Fix [getWeekday](#getweekdaytimestamp) usage of timezone.
+* Fix [getWeekDay](#getweekdaytimestamp) usage of timezone.
 
 ### v2.0.1
 
@@ -307,6 +436,7 @@ Example : `{ years: 3, days: -1, seconds: 20 }` will add 3 years, subtract 1 day
 import t from 'timestamp-utils'
 const results = t.decompose(now)
 ```
+
 * [decompose](#decomposetimestamp-timezoneutc-) now support timezone :
 
 ```javascript
