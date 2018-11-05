@@ -146,6 +146,3 @@ const t = () => ({
 })
 
 export default t()
-const a = t().setMonth(718588800000, 1)
-const b = new Date(a).toString()
-console.log({ a, b })
