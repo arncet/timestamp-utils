@@ -45,6 +45,7 @@
     - [setSeconds(timestamp, seconds)](#setsecondstimestamp-seconds)
     - [setMilliseconds(timestamp, millisecondes)](#setmillisecondstimestamp-millisecondes)
     - [set(timestamp, values)](#settimestamp-values)
+    - [setTimezone(timezone)](#settimezonetimezone)
   - [Changelog 📋](#changelog-📋)
     - [v2.0.3](#v203)
     - [v2.0.2](#v202)
@@ -405,6 +406,16 @@ Example : `{ year: 1992, days: 9, seconds: 14 }` will set year to 1992, day to 9
 
 ---------------------------------------
 
+### setTimezone(timezone)
+* Return : void
+* Params :
+  * *timezone* : String
+* Available since : *v2.0.0*
+
+Set the *global* `timezone` that `timestamp-utils` should use.
+
+---------------------------------------
+
 ## Changelog 📋
 
 ### v2.0.3
@@ -442,6 +453,13 @@ const results = t.decompose(now)
 ```javascript
 import t from 'timestamp-utils'
 const results = t.decompose(now, 'Europe/Paris')
+```
+
+* New method `setTimezone` :
+
+```javascript
+import t from 'timestamp-utils'
+t.setTimezone('Europe/Paris')
 ```
 
 ---------------------------------------
