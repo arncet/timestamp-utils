@@ -134,13 +134,13 @@ const t = () => ({
   },
 
   set(timestamp, { year, month, day, hours, minutes, seconds, milliseconds }) {
-    const y = year || this.getYear(timestamp)
-    const m = month || this.getMonth(timestamp)
-    const d = day || this.getDay(timestamp)
-    const h = hours || this.getHours(timestamp)
-    const mn = minutes || this.getMinutes(timestamp)
-    const s = seconds || this.getSeconds(timestamp)
-    const ms = milliseconds || this.getMilliseconds(timestamp)
+    const y = year ?? this.getYear(timestamp)
+    const m = month ?? this.getMonth(timestamp)
+    const d = day ?? this.getDay(timestamp)
+    const h = hours ?? this.getHours(timestamp)
+    const mn = minutes ?? this.getMinutes(timestamp)
+    const s = seconds ?? this.getSeconds(timestamp)
+    const ms = milliseconds ?? this.getMilliseconds(timestamp)
     return this.setYear(this.setMonth(this.setDay(this.setHours(this.setMinutes(this.setSeconds(this.setMilliseconds(timestamp, ms), s), mn), h), d), m), y)
   }
 })
