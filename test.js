@@ -252,3 +252,17 @@ test('set', t => {
   })
   t.is(timestamp, 759637814300)
 })
+
+// 09 October 1992 at 00:00:00:100 -> 27 January 1994 at 00:00:00:000
+test('set (with 0 values)', t => {
+  const timestamp = timestampUtils.set(718588800100, {
+    year: 1994,
+    month: 1,
+    day: 27,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+    milliseconds: 0
+  })
+  t.is(timestamp, 759628800000)
+})
