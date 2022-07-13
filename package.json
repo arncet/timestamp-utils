@@ -26,6 +26,15 @@
       "object-curly-spacing": [
         2,
         "always"
+      ],
+      "import/extensions": [
+        2,
+        { "js": "never" }
+      ],
+      "n/file-extension-in-import": [
+        2,
+        "always",
+        { ".js": "never" }
       ]
     }
   },
