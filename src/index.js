@@ -28,9 +28,10 @@ const t = () => ({
 
     // Find the closest day
     // 28, 29, 30 and 31 are all months length possibility
-    const { value } = [28, 29, 30, 31].reduce((prev, value) => {
-      const diff = Math.abs(parseInt(this.getDay(this.addDays(timestamp, value * multiplicator)), 10) - day)
-      return (prev.diff === null || diff < prev.diff) ? { value, diff } : prev
+    // eslint-disable-next-line unicorn/no-array-reduce
+    const { value } = [28, 29, 30, 31].reduce((previous, value) => {
+      const diff = Math.abs(Number.parseInt(this.getDay(this.addDays(timestamp, value * multiplicator)), 10) - day)
+      return (previous.diff === null || diff < previous.diff) ? { value, diff } : previous
     }, { value: null, diff: null })
 
     return this.addDays(timestamp, value * multiplicator)
@@ -70,11 +71,13 @@ const t = () => ({
   },
 
   addMonths(timestamp, months) {
-    return initArray(Math.abs(months)).reduce(prev => this.addOneMonth(prev, months < 0), timestamp)
+    // eslint-disable-next-line unicorn/no-array-reduce
+    return initArray(Math.abs(months)).reduce(previous => this.addOneMonth(previous, months < 0), timestamp)
   },
 
   addYears(timestamp, years) {
-    return initArray(Math.abs(years)).reduce(prev => this.addMonths(prev, years > 0 ? 12 : -12), timestamp)
+    // eslint-disable-next-line unicorn/no-array-reduce
+    return initArray(Math.abs(years)).reduce(previous => this.addMonths(previous, years > 0 ? 12 : -12), timestamp)
   },
 
   addDays(timestamp, days) {
@@ -142,7 +145,7 @@ const t = () => ({
     const s = seconds ?? this.getSeconds(timestamp)
     const ms = milliseconds ?? this.getMilliseconds(timestamp)
     return this.setYear(this.setMonth(this.setDay(this.setHours(this.setMinutes(this.setSeconds(this.setMilliseconds(timestamp, ms), s), mn), h), d), m), y)
-  }
+  },
 })
 
 export default t()

@@ -1,7 +1,7 @@
 const INTL_DATE_FORMAT_DEFAULT_OPTION = { year: 'numeric', month: 'long', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' }
 
 // Create an array of undefined with `count` lenght
-export const initArray = count => new Array(count).fill()
+export const initArray = count => Array.from({ length: count }).fill()
 
 // Get the difference between given timezone and UTC time in millisecond
 export const timezoneOffset = timeZone => {
