@@ -4,7 +4,6 @@
 
 ---------------------------------------
 
-![](https://travis-ci.org/arncet/timestamp-utils.svg?branch=master)
 ![](https://img.shields.io/github/license/arncet/timestamp-utils.svg)
 [![Bundlephobia](https://badgen.net/bundlephobia/minzip/timestamp-utils)](https://bundlephobia.com/result?p=timestamp-utils@1.0.3)
 [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/xojs/xo)
@@ -15,10 +14,10 @@
 <!-- TOC -->
 
 - [timestamp-utils](#timestamp-utils)
-  - [Navigation 🗺️ :](#navigation-🗺️-)
-  - [Why 🤔](#why-🤔)
-  - [How to use ✍️](#how-to-use-✍️)
-  - [API 📖](#api-📖)
+  - [Navigation 🗺️ :](#navigation-️-)
+  - [Why 🤔](#why-)
+  - [How to use ✍️](#how-to-use-️)
+  - [API 📖](#api-)
     - [decompose(timestamp, [timezone='UTC'])](#decomposetimestamp-timezoneutc)
     - [getYear(timestamp)](#getyeartimestamp)
     - [getMonth(timestamp)](#getmonthtimestamp)
@@ -46,13 +45,13 @@
     - [setMilliseconds(timestamp, millisecondes)](#setmillisecondstimestamp-millisecondes)
     - [set(timestamp, values)](#settimestamp-values)
     - [setTimezone(timezone)](#settimezonetimezone)
-  - [Changelog 📋](#changelog-📋)
+  - [Changelog 📋](#changelog-)
     - [v2.0.3](#v203)
     - [v2.0.2](#v202)
     - [v2.0.1](#v201)
     - [v2.0.0](#v200)
-  - [Development 💻](#development-💻)
-  - [License 🖋](#license-🖋)
+  - [Development 💻](#development-)
+  - [License 🖋](#license-)
 
 <!-- /TOC -->
 
