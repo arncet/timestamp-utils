@@ -9,13 +9,13 @@ test('initArray', t => {
 })
 
 // Get offset between UTC and ... UTC --'
-test('initArray', t => {
+test('timezoneOffset', t => {
   const offset = timezoneOffset('UTC')
   t.is(offset, 0)
 })
 
 // Get offset between UTC and America/Belem
-test('initArray', t => {
+test('timezoneOffset UTC to America/Belem', t => {
   const offset = timezoneOffset('America/Belem')
   t.is(offset, -10800000)
 })
