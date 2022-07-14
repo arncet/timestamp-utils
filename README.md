@@ -46,7 +46,8 @@
     - [set(timestamp, values)](#settimestamp-values)
     - [setTimezone(timezone)](#settimezonetimezone)
   - [Changelog 📋](#changelog-)
-    - [v2.0.3](#v203)
+    - [v2.2.0](#v220)
+    - [v2.1.0](#v210)
     - [v2.0.2](#v202)
     - [v2.0.1](#v201)
     - [v2.0.0](#v200)
@@ -417,7 +418,12 @@ Set the *global* `timezone` that `timestamp-utils` should use.
 
 ## Changelog 📋
 
-### v2.0.3
+### v2.2.0
+* Update some dependencies [#180](https://github.com/arncet/timestamp-utils/pull/180).
+* Enable `0` value for `set` method [#125](https://github.com/arncet/timestamp-utils/pull/125) [#181](https://github.com/arncet/timestamp-utils/pull/181).
+* Fix `timezoneOffset` util date parsing [#183](https://github.com/arncet/timestamp-utils/pull/183).
+
+### v2.1.0
 
 * Adding `set` methods :
   - [setYear(timestamp, year)](#setyeartimestamp-year)
