@@ -1,11 +1,17 @@
 import test from 'ava'
 import timestampUtils from './src'
-import { initArray, timezoneOffset } from './src/utils'
+import { initArray, toISO8601, timezoneOffset } from './src/utils'
 
 // Init an array with length of 3
 test('initArray', t => {
   const array = initArray(3)
   t.is(array.length, 3)
+})
+
+// Turn an Intl.DateTimeFormat date to iso8601 date
+test('toISO8601', t => {
+  const date = toISO8601('14/07/2022, 14:25:39')
+  t.is(date, '2022-07-14T14:25:39Z')
 })
 
 // Get offset between UTC and ... UTC --'
