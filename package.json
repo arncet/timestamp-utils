@@ -74,7 +74,7 @@
     "@size-limit/preset-small-lib": "7.0.8",
     "ava": "4.3.1",
     "husky": "8.0.1",
-    "rollup": "2.76.0",
+    "rollup": "2.78.0",
     "rollup-plugin-babel": "4.4.0",
     "rollup-plugin-uglify": "6.0.4",
     "size-limit": "7.0.8",
