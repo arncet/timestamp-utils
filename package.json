@@ -78,6 +78,6 @@
     "rollup-plugin-babel": "4.4.0",
     "rollup-plugin-uglify": "6.0.4",
     "size-limit": "7.0.8",
-    "xo": "0.50.0"
+    "xo": "0.52.4"
   }
 }
